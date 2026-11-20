@@ -70,7 +70,7 @@ land = (land_tpl.replace('@@CARDS@@', '\n'.join(cards)).replace('@@OPTIONS@@', o
 (ROOT / '_build/preview.html').write_text(land)
 head, body = land.split('<header', 1)
 head = head.replace('<meta name="claude:viewport-fit-sides" content="cover">\n', '')
-full = ('<!doctype html>\n<html lang="mn">\n<head>\n<meta charset="utf-8">\n'
+full = ('<!doctype html>\n<html lang="mn" translate="no" class="notranslate">\n<head>\n<meta charset="utf-8">\n<meta name="google" content="notranslate">\n'
         '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
         + head + '</head>\n<body>\n<header' + body + '\n</body>\n</html>\n')
 full = full.replace('body{background:var(--bg)', 'body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg)')
