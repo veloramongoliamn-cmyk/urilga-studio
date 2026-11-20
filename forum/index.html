@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Дижитал Худалдааны Форум · Бизнес форум</title>
+<meta name="description" content="Хуваалцсан мэдлэг тань шинэ санаа болон дэлгэрч, Бизнес форум урилга">
+<meta property="og:title" content="Дижитал Худалдааны Форум · Бизнес форум">
+<meta property="og:description" content="Хуваалцсан мэдлэг тань шинэ санаа болон дэлгэрч, Бизнес форум урилга">
+<meta property="og:image" content="../assets/cover-forum.jpg">
+<meta name="theme-color" content="#F4F7F9">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Lora:ital,wght@0,400;0,600;1,400&family=Manrope:wght@500;700&family=Unbounded:wght@500;700&family=Comfortaa:wght@500;700&family=Nunito:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
+<style>
+:root{--paper:#F4F7F9;--ink:#0B1F33;--muted:#4F6275;--acc:#00957D;--acc2:#2F6FD6;--line:#DCE4EA;--stage:#071624;--on:#FFFFFF;--disp:'Unbounded','Manrope',sans-serif;--body:'Manrope',system-ui,sans-serif;
+  --card:color-mix(in srgb,var(--ink) 5%,var(--paper));
+  --ui:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font:16px/1.65 var(--body);overflow-x:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body.locked{overflow:hidden}
+button{font:inherit;cursor:pointer}
+img{max-width:100%}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.g{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* НҮҮР */
+.cover{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;padding-block:28px 36px;max-width:520px;margin:0 auto}
+.arch{width:100%;max-width:420px;aspect-ratio:4/5;border-radius:210px 210px 18px 18px;overflow:hidden;position:relative;box-shadow:0 0 0 1px var(--line),0 0 0 8px var(--paper),0 0 0 9px var(--line),0 30px 50px -28px rgba(0,0,0,.45);animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 55%);display:block;transform:scale(1.04);animation:kb 14s ease-in-out infinite alternate}
+.arch.art{background:radial-gradient(120% 90% at 50% 20%,var(--acc2),transparent 60%),linear-gradient(165deg,var(--acc),var(--stage));display:grid;place-items:center}
+.arch.art .seal{font:600 clamp(64px,22vw,120px)/1 var(--disp);color:var(--paper);position:relative;z-index:2;text-shadow:0 6px 30px rgba(0,0,0,.25);animation:float 6s ease-in-out infinite}
+.arch .rings{position:absolute;inset:0;width:100%;height:100%;opacity:.35}
+.arch .rings circle{fill:none;stroke:var(--paper);stroke-width:1;stroke-dasharray:3 6;transform-origin:center;transform-box:fill-box;animation:spin 50s linear infinite}
+.arch .khee{position:absolute;left:0;right:0;height:16px;background-repeat:repeat-x;opacity:.8}
+@keyframes kb{to{transform:scale(1.12)}}
+@keyframes float{50%{transform:translateY(-8px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.eye{font:700 11px/1.3 var(--ui);letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+.names{font:600 clamp(34px,9.5vw,52px)/1.05 var(--disp);margin:0;text-wrap:balance}
+.names i{font-style:italic;font-weight:500;color:var(--acc2);padding:0 .12em}
+.when{font:600 15px/1.3 var(--ui);color:var(--muted);letter-spacing:.06em}
+.enter{margin-top:6px;border:0;background:var(--ink);color:var(--paper);font:700 16px var(--ui);letter-spacing:.04em;padding:16px 34px;border-radius:999px;animation:ring 2.2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--acc) 55%,transparent)}70%,100%{box-shadow:0 0 0 18px transparent}}
+.hint{font:500 13px var(--ui);color:var(--muted);display:flex;align-items:center;gap:6px}
+.hint svg{width:16px;height:16px}
+.rise{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+
+/* ЕРӨӨЛИЙН ТАЙЗ */
+.stage{position:fixed;inset:0;z-index:20;display:grid;place-items:center;overflow:hidden;background:var(--stage);color:#fff}
+.stage .bg{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(14px) brightness(.42) saturate(1.1);transform:scale(1.1);animation:kb 18s ease-in-out infinite alternate}
+.stage .bg.art{filter:none;background:radial-gradient(80% 60% at 50% 30%,color-mix(in srgb,var(--acc) 45%,transparent),transparent 70%),var(--stage)}
+.stage .veil{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.08),rgba(0,0,0,.6))}
+.lyrics{position:relative;z-index:2;text-align:center;max-width:460px;display:grid;gap:10px;padding-block:calc(env(safe-area-inset-top,0px) + 70px) calc(env(safe-area-inset-bottom,0px) + 110px)}
+.ln{font:italic 500 clamp(21px,6vw,29px)/1.32 var(--disp);opacity:0;transform:translateY(14px);filter:blur(6px);transition:opacity 1s ease,transform 1s ease,filter 1s ease,color .8s}
+.ln.on{opacity:1;transform:none;filter:none}
+.ln.past{color:rgba(255,255,255,.62)}
+.orn{opacity:0;transition:opacity 1s;color:var(--acc2);letter-spacing:.8em;font-size:13px;margin:10px 0 4px}
+.orn.on{opacity:1}
+.inv{font:500 clamp(16px,4.5vw,20px)/1.5 var(--body);font-style:normal}
+.inv.big{font:600 clamp(26px,7.6vw,36px)/1.15 var(--disp);font-style:normal;color:#fff}
+.ctrl{position:absolute;z-index:3;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 26px);display:flex;justify-content:center;gap:10px;padding-inline:20px}
+.pill{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;font:700 14px var(--ui);padding:11px 18px;border-radius:999px;backdrop-filter:blur(6px)}
+.pill.main{background:#fff;color:#111;border-color:#fff;padding:14px 26px;font-size:15px}
+.skip{position:absolute;z-index:3;top:calc(env(safe-area-inset-top,0px) + 16px);right:max(16px,env(safe-area-inset-right,0px));border:0;background:none;color:rgba(255,255,255,.75);font:600 13px var(--ui);padding:8px}
+.bar{position:absolute;z-index:3;top:env(safe-area-inset-top,0px);left:0;height:3px;background:var(--acc2);width:0}
+.pt{position:absolute;top:-24px;opacity:.55;animation:fall linear infinite;z-index:1}
+@keyframes fall{to{transform:translate(50px,110vh) rotate(320deg)}}
+.sound{position:fixed;z-index:30;top:calc(env(safe-area-inset-top,0px) + 12px);left:max(14px,env(safe-area-inset-left,0px));width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(0,0,0,.35)}
+.sound svg{width:20px;height:20px}
+
+/* ДЭЛГЭРЭНГҮЙ */
+.wrap{max-width:520px;margin:0 auto}
+.sec{padding-block:44px;border-top:1px solid var(--line);display:grid;gap:16px;text-align:center;justify-items:center}
+.sec:first-child{border-top:0}
+.h{font:700 11px var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.bless{font:italic 500 23px/1.45 var(--disp);white-space:pre-line;text-wrap:balance}
+.msg{max-width:38ch;text-wrap:pretty}
+.date{display:flex;align-items:center;gap:18px}
+.date .d{font:600 64px/1 var(--disp);font-variant-numeric:tabular-nums}
+.date .side{text-align:left;font:600 14px/1.5 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:18px}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:360px}
+.cd div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 4px}
+.cd b{display:block;font:600 26px/1.1 var(--disp);font-variant-numeric:tabular-nums}
+.cd span{font:500 11px var(--ui);color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:700 14px var(--ui);padding:12px 20px;border-radius:999px;background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn.o{background:transparent;color:var(--ink)}
+.prog{width:100%;max-width:380px;text-align:left}
+.prog div{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.prog div:last-child{border-bottom:0}
+.prog b{font:600 19px var(--disp);color:var(--acc);font-variant-numeric:tabular-nums}
+.venue{font:600 25px/1.2 var(--disp)}
+.addr{color:var(--muted)}
+.qr{background:#fff;padding:12px;border-radius:16px;border:1px solid var(--line);width:172px;height:172px;display:grid;place-items:center}
+.qr img,.qr canvas{width:148px!important;height:148px!important}
+.small{font-size:14px;color:var(--muted);max-width:34ch}
+form{display:grid;gap:12px;width:100%;max-width:360px;text-align:left}
+form input[type=text],form input[type=number]{width:100%;font:16px var(--body);padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.choice label{position:relative}
+.choice input{position:absolute;opacity:0}
+.choice span{display:block;text-align:center;padding:12px;border-radius:12px;border:1px solid var(--line);font:700 14px var(--ui);background:var(--card);cursor:pointer}
+.choice input:checked+span{background:var(--acc);border-color:var(--acc);color:var(--on)}
+.choice input:focus-visible+span{outline:3px solid var(--acc);outline-offset:2px}
+label.f{font:700 12px var(--ui);color:var(--muted);display:grid;gap:6px}
+.thanks{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;max-width:360px}
+.tel{font:600 26px var(--disp);user-select:all}
+.foot{padding-block:30px 40px;text-align:center;font:500 13px var(--ui);color:var(--muted);border-top:1px solid var(--line);display:grid;gap:10px;justify-items:center}
+.foot a{color:var(--ink);font-weight:700}
+.reveal{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.ln{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<main>
+  <section class="cover g">
+    <div class="arch" id="arch"></div>
+    <div class="eye rise" style="animation-delay:.3s" id="cEye"></div>
+    <h1 class="names rise" style="animation-delay:.45s" id="cTitle"></h1>
+    <div class="when rise" style="animation-delay:.6s" id="cWhen"></div>
+    <button type="button" class="enter rise" id="enter" style="animation-delay:.8s">Энд дарна уу</button>
+    <div class="hint rise" style="animation-delay:1s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg><span id="cHint">Дуутай урилга. Дууг нь асаагаарай</span></div>
+  </section>
+
+  <div class="g" id="details" hidden>
+    <div class="wrap">
+      <section class="sec reveal"><div class="h">Ерөөлийн үг</div><p class="bless" id="dBless"></p><p class="msg" id="dMsg"></p></section>
+      <section class="sec"><div class="h">Хэзээ</div>
+        <div class="date"><span class="d" id="dDay"></span><span class="side" id="dSide"></span></div>
+        <div class="cd" id="cd"><div><b>0</b><span>өдөр</span></div><div><b>00</b><span>цаг</span></div><div><b>00</b><span>минут</span></div><div><b>00</b><span>секунд</span></div></div>
+        <div class="btns"><a class="btn o" id="calBtn" target="_blank" rel="noopener">Календарьт нэмэх</a></div></section>
+      <section class="sec"><div class="h">Хөтөлбөр</div><div class="prog" id="prog"></div></section>
+      <section class="sec"><div class="h">Хаана</div><div class="venue" id="venue"></div><div class="addr" id="addr"></div>
+        <div class="btns"><a class="btn" id="mapBtn" target="_blank" rel="noopener">Газрын зураг нээх</a></div></section>
+      <section class="sec"><div class="h">Хувцаслалт</div><p id="dress"></p></section>
+      <section class="sec"><div class="h">QR код</div><div class="qr" id="qr"></div><p class="small">Энэ урилгын QR. Хэвлэмэл урилга дээр тавьж, утасны камераар уншуулахад энэ хуудас нээгдэнэ.</p></section>
+      <section class="sec"><div class="h">Ирэх эсэхээ мэдэгдэнэ үү</div>
+        <form id="rsvp">
+          <label class="f" for="r-name">Таны нэр<input id="r-name" type="text" required placeholder="Овог нэр"></label>
+          <div class="choice"><label><input type="radio" name="go" id="r-yes" checked><span>Ирнэ</span></label><label><input type="radio" name="go" id="r-no"><span>Ирж чадахгүй</span></label></div>
+          <label class="f" for="r-cnt">Хэдэн хүн ирэх вэ<input id="r-cnt" type="number" min="1" max="20" value="2"></label>
+          <button class="btn" type="submit">Хариу илгээх</button>
+          <p class="small" style="margin:0">Хариу тань урьсан хүний утсанд мессежээр очно.</p>
+        </form>
+        <div class="thanks" id="thanks" hidden></div></section>
+      <section class="sec"><div class="h">Лавлах утас</div><div class="tel" id="tel"></div><p class="small">Таныг хүндэтгэн хүлээж байна.</p></section>
+    </div>
+    <div class="foot"><span>Цахим урилга · Урилга Студи</span><a href="../index.html">Ийм урилга захиалах</a></div>
+  </div>
+</main>
+
+<div class="stage" id="stage" hidden>
+  <div class="bg" id="sBg"></div><div class="veil"></div>
+  <div class="bar" id="bar"></div>
+  <button type="button" class="skip" id="skip">Алгасах ›</button>
+  <div class="lyrics g" id="lyrics"></div>
+  <div class="ctrl" id="ctrl" hidden>
+    <button type="button" class="pill" id="replay">↺ Дахин</button>
+    <button type="button" class="pill main" id="more">Дэлгэрэнгүй ↓</button>
+  </div>
+</div>
+<button type="button" class="sound" id="sound" aria-label="Дуу унтраах" hidden></button>
+<audio id="voice" preload="auto"></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* ===== УРИЛГЫН МЭДЭЭЛЭЛ (build.py-аас автоматаар орно) ===== */
+const D={"type": "Бизнес форум", "title": "Дижитал Худалдааны Форум", "seal": "DCF", "cover": "../assets/cover-forum.jpg", "coverAlt": "Бизнес форум урилгын зураг", "coverPos": "50% 30%", "voice": "../assets/voice-forum.mp3", "times": [0.1, 3.65, 7.66, 11.87, 13.13, 14.81], "end": 17.62, "music": "../assets/ay-zuulun.mp3", "bless": "Хуваалцсан мэдлэг тань шинэ санаа болон дэлгэрч,\nБий болгосон холбоо тань хамтын амжилтын үндэс болж,\nМонголын цахим худалдаа улам өргөжих болтугай!", "inviteLines": ["Онлайн худалдаа эрхлэгчдэд", "Дижитал Худалдааны Форум 2027-д", "таныг илтгэгч, оролцогчоор урьж байна."], "msg": "Онлайн борлуулалт, AI маркетинг, төлбөрийн шийдлийн талаар салбарын илтгэгчидтэй нэг өдрийн форум.", "date": "2027-04-15", "time": "09:00", "venue": "Нийслэл хурлын төв", "addr": "Хан-Уул дүүрэг, Улаанбаатар", "program": [["09:00", "Бүртгэл"], ["10:00", "Нээлтийн илтгэл"], ["13:00", "Панел хэлэлцүүлэг"], ["16:00", "Танилцах цаг"]], "dress": "Business casual.", "phone": "7575-1500", "particles": "petals", "theme": {"paper": "#F4F7F9", "ink": "#0B1F33", "muted": "#4F6275", "acc": "#00957D", "acc2": "#2F6FD6", "line": "#DCE4EA", "stage": "#071624", "on": "#FFFFFF", "disp": "'Unbounded','Manrope',sans-serif", "body": "'Manrope',system-ui,sans-serif"}, "mapLink": "", "siteLink": ""};
+/* ========================================================== */
+const $=id=>document.getElementById(id);
+const WD=['Ням','Даваа','Мягмар','Лхагва','Пүрэв','Баасан','Бямба'];
+const [Y,M,DD]=D.date.split('-'), WDAY=WD[new Date(D.date+'T12:00:00').getDay()]+' гараг';
+const MAP=D.mapLink||('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(D.venue+', '+D.addr));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* нүүр */
+const arch=$('arch');
+if(D.cover){arch.innerHTML=`<img src="${D.cover}" alt="${esc(D.coverAlt||D.title)}">`;if(D.coverPos)arch.style.setProperty('--pos',D.coverPos)}
+else{arch.classList.add('art');let k='';
+  if(D.khee){const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='24' height='16'><path d='M0 14H5V2H17V10H11V6' fill='none' stroke='${D.theme.paper}' stroke-width='2'/><path d='M17 10V14H24' fill='none' stroke='${D.theme.paper}' stroke-width='2'/></svg>`;
+    const u=`url('data:image/svg+xml,${encodeURIComponent(svg.replace(/'/g,'"'))}')`;k=`<div class="khee" style="top:26px;background-image:${u}"></div><div class="khee" style="bottom:22px;background-image:${u};transform:scaleY(-1)"></div>`}
+  arch.innerHTML=`<svg class="rings" viewBox="0 0 200 250" aria-hidden="true"><circle cx="100" cy="120" r="70"/><circle cx="100" cy="120" r="88" style="animation-direction:reverse"/></svg>${k}<div class="seal">${esc(D.seal)}</div>`}
+$('cEye').textContent=D.type;
+$('cTitle').innerHTML=D.titleHtml||esc(D.title);
+$('cWhen').textContent=`${Y}.${M}.${DD} · ${WDAY}`;
+if(!D.voice)$('cHint').textContent='Ерөөл, аятай урилга. Дууг нь асаагаарай';
+
+/* тайз */
+const sBg=$('sBg');
+if(D.cover)sBg.style.backgroundImage=`url(${D.cover})`;else sBg.classList.add('art');
+const LINES=[...D.bless.split('\n').map(x=>({x})),...D.inviteLines.map((x,i)=>({x,c:i===1?'inv big':'inv',orn:i===0}))];
+const NB=D.bless.split('\n').length;
+$('lyrics').innerHTML=LINES.map((l,i)=>(l.orn?`<div class="orn" data-i="${i}">✦ ✦ ✦</div>`:'')+`<div class="ln ${l.c||''}" data-i="${i}">${esc(l.x)}</div>`).join('');
+const lnEls=[...document.querySelectorAll('.ln')],ornEls=[...document.querySelectorAll('.orn')];
+const stage=$('stage');
+for(let i=0;i<12;i++){const p=document.createElement('span');p.className='pt';const s=7+Math.random()*9,conf=D.particles==='confetti';
+  p.style.cssText=`left:${Math.random()*96}%;width:${s}px;height:${conf?s*1.6:s}px;background:${[D.theme.acc2,D.theme.acc,'#fff'][i%3]};border-radius:${conf?'2px':'60% 0 60% 0'};animation-duration:${9+Math.random()*8}s;animation-delay:-${Math.random()*16}s`;stage.appendChild(p)}
+
+/* цаг хуваарь: D.times байвал түүгээр, дуу байвал үгийн уртаар, үгүй бол автоматаар */
+let T=D.times||null, END=D.end||0;
+function autoTimes(total){
+  const w=LINES.map(l=>l.x.length+8), gap=total?0.06*total:1.2;
+  if(total){const usable=total-gap-0.4,sum=w.reduce((a,b)=>a+b,0);let t=0.2;T=w.map((x,i)=>{const r=t;t+=x/sum*usable;if(i===NB-1)t+=gap;return r});END=total+0.2}
+  else{let t=0.4;T=LINES.map((l,i)=>{const r=t;t+=i<NB?2.6:2.9;if(i===NB-1)t+=1.2;return r});END=t+1.2}
+}
+const voice=$('voice');
+if(D.voice){voice.src=D.voice;if(!T)voice.addEventListener('loadedmetadata',()=>{if(!D.times)autoTimes(voice.duration)});}
+if(!T&&!D.voice)autoTimes(0);
+
+let clock0=0,useClock=!D.voice,raf=0,done=false;
+const now=()=>useClock?(performance.now()-clock0)/1000:voice.currentTime;
+function frame(){
+  if(!T)autoTimes(D.voice&&voice.duration?voice.duration:0);
+  const t=now();
+  LINES.forEach((l,i)=>{const on=t>=T[i];lnEls[i].classList.toggle('on',on);lnEls[i].classList.toggle('past',on&&i<NB&&t>=T[NB])});
+  ornEls.forEach(o=>o.classList.toggle('on',t>=T[o.dataset.i]));
+  $('bar').style.width=Math.min(100,t/END*100)+'%';
+  if(t>=END||(!useClock&&voice.ended)){finish();return}
+  raf=requestAnimationFrame(frame);
+}
+function start(){
+  startMusic();$('sound').hidden=false;duck(true);
+  done=false;$('ctrl').hidden=true;lnEls.forEach(e=>e.classList.remove('on','past'));ornEls.forEach(e=>e.classList.remove('on'));
+  stage.hidden=false;document.body.classList.add('locked');
+  if(D.voice){voice.currentTime=0;useClock=false;const p=voice.play();if(p&&p.catch)p.catch(()=>{useClock=true;clock0=performance.now()})}
+  else{useClock=true;clock0=performance.now()}
+  cancelAnimationFrame(raf);raf=requestAnimationFrame(frame);
+}
+function finish(){if(done)return;done=true;cancelAnimationFrame(raf);duck(false);
+  lnEls.forEach(e=>e.classList.add('on'));ornEls.forEach(e=>e.classList.add('on'));$('bar').style.width='100%';$('ctrl').hidden=false}
+function toDetails(){voice.pause();cancelAnimationFrame(raf);done=true;stage.hidden=true;document.body.classList.remove('locked');duck(false);
+  $('details').hidden=false;drawQR();$('details').scrollIntoView({behavior:'smooth',block:'start'})}
+$('enter').onclick=start;$('replay').onclick=start;$('more').onclick=toDetails;$('skip').onclick=toDetails;
+
+/* ая */
+const LOW=D.voice?0.2:0.4,HIGH=0.45;let actx=null,gain=null,musicOn=false,muted=false,mEl=null;
+const musicData=location.protocol==='file:'?Promise.resolve(null):fetch(D.music).then(r=>r.ok?r.arrayBuffer():null).catch(()=>null);
+/* нөөц арга: файлаас шууд нээсэн эсвэл fetch ажиллахгүй үед энгийн audio-оор тоглуулна */
+function fallbackMusic(){if(mEl)return;mEl=new Audio(D.music);mEl.loop=true;mEl.volume=muted?0:(done?HIGH:LOW);mEl.play().catch(()=>{})}
+function startMusic(){if(musicOn)return;musicOn=true;
+  if(location.protocol==='file:'){fallbackMusic();return}
+  try{actx=new(window.AudioContext||window.webkitAudioContext)();gain=actx.createGain();gain.gain.value=0;gain.connect(actx.destination);
+    musicData.then(ab=>ab?actx.decodeAudioData(ab):null).then(buf=>{if(!buf){gain=null;fallbackMusic();return}
+      const s=actx.createBufferSource();s.buffer=buf;s.loop=true;s.connect(gain);s.start();
+      const t=actx.currentTime;gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(muted?0:(done?HIGH:LOW),t+2.5)}).catch(()=>{gain=null;fallbackMusic()})}
+  catch(e){gain=null;fallbackMusic()}}
+function setVol(v,sec){if(gain){const t=actx.currentTime;gain.gain.cancelScheduledValues(t);gain.gain.setValueAtTime(gain.gain.value,t);gain.gain.linearRampToValueAtTime(v,t+sec)}else if(mEl){mEl.volume=v}}
+function duck(low){if(muted)return;setVol(low?LOW:HIGH,1.5)}
+const ON='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+const OFF='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m16 9 6 6M22 9l-6 6"/></svg>';
+$('sound').innerHTML=ON;
+$('sound').onclick=()=>{muted=!muted;voice.muted=muted;setVol(muted?0:(done?HIGH:LOW),.6);
+  $('sound').innerHTML=muted?OFF:ON;$('sound').setAttribute('aria-label',muted?'Дуу асаах':'Дуу унтраах')};
+
+/* дэлгэрэнгүй */
+$('dBless').textContent=D.bless;$('dMsg').textContent=D.msg;
+$('dDay').textContent=`${M}.${DD}`;$('dSide').innerHTML=`${Y} он<br>${WDAY}<br>${D.time} цагт`;
+$('prog').innerHTML=D.program.map(p=>`<div><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div>`).join('');
+$('venue').textContent=D.venue;$('addr').textContent=D.addr;$('dress').textContent=D.dress;$('tel').textContent=D.phone;$('mapBtn').href=MAP;
+{const [h,mi]=D.time.split(':');const s=`${Y}${M}${DD}T${h}${mi}00`,e=`${Y}${M}${DD}T${String(Math.min(23,+h+4)).padStart(2,'0')}${mi}00`;
+ $('calBtn').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(D.type+': '+D.title)+`&dates=${s}/${e}&ctz=Asia/Ulaanbaatar&location=`+encodeURIComponent(D.venue+', '+D.addr)}
+let qrDone=false;
+function drawQR(){if(qrDone)return;qrDone=true;const url=D.siteLink||location.href.split('#')[0];
+  try{new QRCode($('qr'),{text:url,width:296,height:296,colorDark:'#111111',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}catch(e){$('qr').textContent='QR'}}
+const target=new Date(D.date+'T'+D.time+':00+08:00').getTime();
+function tick(){let s=Math.max(0,target-Date.now())/1000;const v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),Math.floor(s%60)];
+  $('cd').querySelectorAll('b').forEach((b,i)=>b.textContent=i?String(v[i]).padStart(2,'0'):v[i])}
+tick();setInterval(tick,1000);
+$('rsvp').addEventListener('submit',e=>{e.preventDefault();const n=$('r-name').value.trim(),yes=$('r-yes').checked,c=$('r-cnt').value;
+  const body=yes?`${D.title}: ${n} ${c} хүнтэйгээ ирнэ.`:`${D.title}: ${n} ирж чадахгүй.`;
+  const num=D.phone.replace(/\D/g,'');
+  $('rsvp').hidden=true;const t=$('thanks');t.hidden=false;
+  t.innerHTML=`${yes?'Баярлалаа':'Ойлголоо'}, ${esc(n)}! Доорх товчоор хариугаа илгээнэ үү.<div class="btns" style="margin-top:12px"><a class="btn" href="sms:${num}?&body=${encodeURIComponent(body)}">Мессежээр илгээх</a></div><p class="small" style="margin:10px auto 0">Эсвэл ${esc(D.phone)} дугаарт залгана уу.</p>`});
+</script>
+</body>
+</html>

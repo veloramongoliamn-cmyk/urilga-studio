@@ -1,0 +1,305 @@
+<title>Урилга Студи</title>
+<meta name="description" content="Ерөөлтэй, дуутай, QR кодтой цахим урилга. Хурим, ой, төрсөн өдөр, сэвлэг үргээх ёслол, Цагаан сар, байгууллагын арга хэмжээ.">
+<meta property="og:title" content="Урилга Студи · Ерөөлтэй, дуутай цахим урилга">
+<meta property="og:description" content="Нэг холбоос, нэг QR. Ерөөл, огноо, байршил, хөтөлбөр бүгд дотроо.">
+<meta property="og:image" content="assets/cover-hurim.jpg">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700;800&family=Unbounded:wght@600&family=Comfortaa:wght@700&family=Lora:wght@600&family=Montserrat:wght@700&display=swap">
+<style>
+/* Layout: урилгын хаалган хүрээ давтагдах сэдэв. Нүүр → онцлог → 12 жишээ → алхам → үнэ → захиалга → асуулт */
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --ink:#152230; --muted:#5A6878; --line:#DDE3E9;
+  --sky:#2F7FA8; --rose:#D4879C; --gold:#C2902A; --deep:#13201D;
+  --disp:'Cormorant Garamond',Georgia,serif; --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+a{color:var(--sky)}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.1}
+h2{font:600 clamp(32px,5vw,46px)/1.05 var(--disp)}
+p{margin:0}
+button,input,select{font:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.g{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+.eye{font:800 11.5px/1.2 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--sky)}
+.lead{color:var(--muted);max-width:58ch;font-size:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font:800 15px var(--body);text-decoration:none;border:1px solid var(--ink);cursor:pointer}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.line{background:transparent;color:var(--ink)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--bg)}
+.top .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font:700 22px var(--disp);color:var(--ink);text-decoration:none}
+.logo i{width:28px;height:34px;border-radius:14px 14px 4px 4px;background:var(--ink);display:block;position:relative}
+.logo i::after{content:"";position:absolute;inset:6px 6px 8px;border-radius:9px 9px 2px 2px;border:1.5px solid #fff}
+.nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:14px;padding:8px 10px;border-radius:8px}
+.nav a.btn{color:#fff;padding:10px 16px;font-size:14px}
+@media (max-width:620px){.nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-block:48px 56px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.hero h1{font:600 clamp(42px,6.6vw,74px)/1 var(--disp);margin:14px 0 18px}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.proof span{font:700 13px var(--body);padding:7px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.harch{position:relative;justify-self:center;width:min(400px,100%)}
+.harch .a{aspect-ratio:4/5;border-radius:200px 200px 18px 18px;overflow:hidden;box-shadow:0 0 0 8px var(--bg),0 0 0 9px #C9D3DC,0 40px 60px -30px rgba(20,30,40,.5)}
+.harch img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block;max-width:100%}
+.tag{position:absolute;background:var(--surface);border-radius:14px;padding:10px 14px;box-shadow:0 14px 30px -14px rgba(20,30,40,.35);font:700 13px var(--body);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.tag svg{width:18px;height:18px;color:var(--sky)}
+.tag.t1{left:-14px;top:22%}
+.tag.t2{right:-10px;bottom:16%}
+.wave{display:flex;gap:2px;align-items:center;height:16px}
+.wave b{width:3px;border-radius:2px;background:var(--rose);animation:w 1s ease-in-out infinite}
+.wave b:nth-child(2){animation-delay:-.2s}.wave b:nth-child(3){animation-delay:-.4s}.wave b:nth-child(4){animation-delay:-.6s}.wave b:nth-child(5){animation-delay:-.8s}
+@keyframes w{0%,100%{height:4px}50%{height:16px}}
+
+section.block{padding-block:72px;border-top:1px solid var(--line)}
+.head{display:grid;gap:12px;margin-bottom:34px}
+
+/* features */
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:8px;align-content:start}
+.feat b{font:700 15px var(--body)}
+.feat span{color:var(--muted);font-size:14px;line-height:1.5}
+.feat svg{width:22px;height:22px;color:var(--sky)}
+
+/* examples */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 15px;border-radius:999px;font:700 14px var(--body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{display:grid;gap:12px;text-decoration:none;color:var(--ink)}
+.card .a{aspect-ratio:4/5;border-radius:120px 120px 14px 14px;overflow:hidden;position:relative;display:grid;place-items:center;transition:transform .25s;max-width:100%}
+.card:hover .a{transform:translateY(-4px)}
+.card .a img{width:100%;height:100%;object-fit:cover;display:block}
+.card .seal{font:600 64px/1 var(--disp);color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.2);text-align:center;padding:0 12px}
+.card .play{position:absolute;bottom:12px;right:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--ink)}
+.card .play svg{width:16px;height:16px;margin-left:2px}
+.card .vb{position:absolute;top:14px;left:50%;transform:translateX(-50%);font:800 10px var(--body);letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--ink);padding:5px 10px;border-radius:999px;white-space:nowrap}
+.card h3{font:700 16px var(--body)}
+.card p{font-size:14px;color:var(--muted)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;align-content:start}
+.step .n{font:600 44px/1 var(--disp);color:var(--rose)}
+.step b{font-size:17px}
+.step span{color:var(--muted);font-size:15px}
+
+/* prices */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:14px}
+.tier.hot{border:2px solid var(--ink);box-shadow:0 24px 40px -26px rgba(20,30,40,.4)}
+.tier .nm{font:800 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--sky)}
+.tier .pr{font:600 46px/1 var(--disp);font-variant-numeric:tabular-nums}
+.tier .pr small{font:600 14px var(--body);color:var(--muted)}
+.tier ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.tier li{display:grid;grid-template-columns:18px 1fr;gap:8px}
+.tier li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rose);margin-top:8px}
+.tier .btn{width:100%}
+.badge{justify-self:start;font:800 11px var(--body);background:var(--ink);color:#fff;padding:5px 10px;border-radius:999px}
+
+/* order */
+.order{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .full{grid-column:1/-1}
+.form label{display:grid;gap:6px;font:700 13px var(--body);color:var(--muted)}
+.form input,.form select{width:100%;min-width:0;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:11px;padding:12px;font-size:16px}
+.out{display:grid;gap:10px}
+.out textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:12px;padding:12px;font:14px/1.5 var(--body);background:var(--bg);color:var(--ink)}
+.contact{display:grid;gap:14px;align-content:start}
+.contact .ph{font:600 40px/1 var(--disp);user-select:all}
+.note{font-size:14px;color:var(--muted)}
+.ok{font:700 14px var(--body);color:var(--sky)}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:780px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.faq summary{font-weight:800;cursor:pointer}
+.faq p{color:var(--muted);margin-top:8px}
+
+footer{border-top:1px solid var(--line);padding-block:30px 44px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+@media (max-width:900px){
+  .hero .wrap,.order{grid-template-columns:1fr}
+  .feats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps,.tiers{grid-template-columns:1fr}
+  .harch{margin-top:10px}
+}
+@media (max-width:520px){.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card .seal{transform:scale(.75)}.card h3{font-size:14px}.card p{font-size:13px}.card .vb{font-size:8.5px;padding:4px 8px}}
+@media (max-width:480px){.form{grid-template-columns:1fr}.tag.t1{left:0}.tag.t2{right:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap g">
+    <a class="logo" href="#top"><i></i>Урилга Студи</a>
+    <nav class="nav"><a href="#jishee">Жишээ</a><a href="#une">Үнэ</a><a href="#asuult">Асуулт</a><a class="btn dark" href="#zahialah">Захиалах</a></nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap g">
+    <div>
+      <div class="eye">Цахим урилга</div>
+      <h1>Ерөөлтэй, <em>дуутай</em> урилга нэг QR кодонд</h1>
+      <p class="lead">Зочин тань урилгаа нээхэд эхлээд таны ерөөлийн үг дуугаар уншигдаж, зөөлөн ая эгшиглэнэ. Дараа нь огноо, байршил, хөтөлбөрөө нэг дороос харж, ирэх эсэхээ шууд мэдэгдэнэ.</p>
+      <div class="cta"><a class="btn dark" href="#jishee">Жишээ урилга үзэх</a><a class="btn line" href="#zahialah">Захиалга өгөх</a></div>
+      <div class="proof"><span>15,000₮-өөс</span><span>24 цагт бэлэн</span><span>12 төрлийн загвар</span></div>
+    </div>
+    <div class="harch">
+      <div class="a"><img src="assets/cover-hurim.jpg" alt="Дээлтэй хос хуримын урилгын зураг"></div>
+      <div class="tag t1"><span class="wave"><b></b><b></b><b></b><b></b><b></b></span>Ерөөлийн дуу</div>
+      <div class="tag t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20h2M20 14v2"/></svg>Нэг QR, бүх мэдээлэл</div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap g">
+    <div class="head"><div class="eye">Урилгад юу багтдаг вэ</div><h2>Зочин тань юу ч асуух шаардлагагүй</h2></div>
+    <div class="feats">
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12M8 8v4M16 8v4M4 10v1M20 10v1"/><path d="M8 19h8"/></svg><b>Ерөөлийн дуу</b><span>Арга хэмжээнд тохирсон ерөөл дуугаар уншигдаж, үгнүүд дэлгэц дээр мөр мөрөөр гарна.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><b>Зөөлөн ая</b><span>Дэвсгэр хөгжим. Зочин нэг товчоор унтрааж болно.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Огноо, тоолуур</b><span>Баяр хүртэл хэдэн өдөр үлдсэнийг харуулж, календарьт нэг товчоор нэмнэ.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b>Газрын зураг</b><span>Байршил руу шууд хөтөлнө. Төөрөх зочин гарахгүй.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><b>Хөтөлбөр</b><span>Угтах, ёслол, зоог, үдэшлэг цагтайгаа.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><b>Ирэх эсэх</b><span>Зочин ирэх эсэх, хэдэн хүнтэй ирэхээ таны утас руу мессежээр илгээнэ.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg><b>QR код</b><span>Хэвлэмэл урилга, ширээний карт дээр тавихад бэлэн.</span></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><b>Ямар ч утсанд</b><span>iPhone, Android аль алинд апп суулгахгүйгээр нээгдэнэ.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="jishee">
+  <div class="wrap g">
+    <div class="head"><div class="eye">Жишээ урилгууд</div><h2>12 төрлийн арга хэмжээ</h2><p class="lead">Дарж нээгээд "Энд дарна уу" товчийг дараарай. Утасныхаа дууг асаахаа мартуузай.</p></div>
+    <div class="chips" id="chips"></div>
+    <div class="cards" id="cards">@@CARDS@@</div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap g">
+    <div class="head"><div class="eye">Хэрхэн захиалах вэ</div><h2>Гуравхан алхам</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><b>Загвараа сонгоно</b><span>Дээрх жишээнүүдээс таалагдсанаа сонгоно. Өнгийг тань хүссэнээр өөрчилнө.</span></div>
+      <div class="step"><div class="n">2</div><b>Мэдээллээ илгээнэ</b><span>Доорх хэлбэрийг бөглөөд илгээнэ. Зураг, ерөөлийн үгээ мөн явуулж болно.</span></div>
+      <div class="step"><div class="n">3</div><b>Холбоос, QR авна</b><span>24 цагийн дотор урилгын холбоос, QR код бэлэн болно. Шууд зочиддоо илгээнэ.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="une">
+  <div class="wrap g">
+    <div class="head"><div class="eye">Үнэ</div><h2>Танд тохирох багц</h2></div>
+    <div class="tiers">
+      <div class="tier"><div class="nm">Энгийн</div><div class="pr">15,000₮</div>
+        <ul><li>Бэлэн загвар</li><li>Огноо, цаг, тоолуур</li><li>Газрын зургийн товч</li><li>QR код</li><li>1 удаа засвар</li></ul>
+        <a class="btn line" href="#zahialah" data-pkg="Энгийн">Сонгох</a></div>
+      <div class="tier hot"><span class="badge">Хамгийн их сонгогддог</span><div class="nm">Стандарт</div><div class="pr">25,000₮</div>
+        <ul><li>Энгийн багцын бүх зүйл</li><li>Ерөөлийн үг, зөөлөн ая</li><li>Нээх хөдөлгөөн</li><li>Хөтөлбөр, хувцаслалт</li><li>Ирэх эсэх мэдэгдэх</li><li>Хэвлэх QR карт</li><li>3 удаа засвар</li></ul>
+        <a class="btn dark" href="#zahialah" data-pkg="Стандарт">Сонгох</a></div>
+      <div class="tier"><div class="nm">Премиум</div><div class="pr">49,000₮</div>
+        <ul><li>Стандарт багцын бүх зүйл</li><li>Ерөөлийг дуугаар уншуулна</li><li>Таны зураг нүүрэнд</li><li>Зочин бүрт нэрээр нь урилга</li><li>Баярын дараах зургийн цомог</li><li>Яаралтай: 12 цагт</li></ul>
+        <a class="btn line" href="#zahialah" data-pkg="Премиум">Сонгох</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="zahialah">
+  <div class="wrap g">
+    <div class="head"><div class="eye">Захиалга</div><h2>Мэдээллээ бөглөөд илгээгээрэй</h2><p class="lead">Бөглөсний дараа "Захиалга илгээх" дарахад мессеж бэлэн болж, манай дугаар руу илгээгдэнэ.</p></div>
+    <div class="order">
+      <form class="form" id="oform">
+        <label class="full" for="o-type">Арга хэмжээ<select id="o-type">@@OPTIONS@@</select></label>
+        <label class="full" for="o-pkg">Багц<select id="o-pkg"><option>Стандарт</option><option>Энгийн</option><option>Премиум</option></select></label>
+        <label class="full" for="o-title">Нэр (хос, ойн эзэн, компани)<input id="o-title" type="text" required placeholder="Жишээ: Тэмүүлэн & Номин"></label>
+        <label for="o-date">Огноо<input id="o-date" type="date" required></label>
+        <label for="o-time">Цаг<input id="o-time" type="time" value="15:00"></label>
+        <label class="full" for="o-venue">Газар<input id="o-venue" type="text" placeholder="Ордон, ресторан, хаяг"></label>
+        <label class="full" for="o-phone">Таны утас<input id="o-phone" type="tel" required placeholder="99xx-xxxx"></label>
+        <div class="full" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <button class="btn dark" type="submit">Захиалга илгээх</button><span class="ok" id="ook" role="status"></span>
+        </div>
+      </form>
+      <div class="contact">
+        <div class="out" id="oout" hidden>
+          <b>Таны захиалгын мессеж</b>
+          <textarea id="omsg" readonly aria-label="Захиалгын мессеж"></textarea>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a class="btn dark" id="osms">Мессежээр илгээх</a>
+            <button type="button" class="btn line" id="ocopy">Хуулах</button>
+            <a class="btn line" id="omsgr" target="_blank" rel="noopener" hidden>Messenger</a>
+          </div>
+        </div>
+        <div class="eye">Холбогдох</div>
+        <div class="ph" id="sphone"></div>
+        <p class="note">Залгах эсвэл мессеж бичих боломжтой. Зураг, ерөөлийн үгээ Messenger-ээр илгээж болно.</p>
+        <div id="ssocial" style="display:flex;gap:10px;flex-wrap:wrap"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="asuult">
+  <div class="wrap g">
+    <div class="head"><div class="eye">Түгээмэл асуулт</div><h2>Асуулт, хариулт</h2></div>
+    <div class="faq">
+      <details open><summary>Урилга хэзээ бэлэн болох вэ?</summary><p>Мэдээллээ бүрэн илгээснээс хойш 24 цагийн дотор. Премиум багцад 12 цагт.</p></details>
+      <details><summary>Зочид яаж нээх вэ?</summary><p>Таны илгээсэн холбоос дээр дарах эсвэл QR кодыг утасны камераар уншуулахад нээгдэнэ. Апп суулгах шаардлагагүй.</p></details>
+      <details><summary>Ерөөлийн үгээ өөрөө бичиж болох уу?</summary><p>Болно. Өөрийн ерөөлөө илгээвэл түүгээр нь хийнэ. Илгээхгүй бол арга хэмжээнд тохирсон ерөөлийг бид бичиж өгнө.</p></details>
+      <details><summary>Мэдээлэл өөрчлөгдвөл яах вэ?</summary><p>Холбоос, QR код хэвээрээ үлдэж, доторх мэдээлэл нь шинэчлэгдэнэ. Хэвлэсэн урилгаа дахин хэвлэх шаардлагагүй.</p></details>
+      <details><summary>Төлбөрөө яаж төлөх вэ?</summary><p>Захиалга баталгаажсаны дараа дансаар эсвэл QPay-ээр төлнө.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap g"><span>© Урилга Студи · Ерөөлтэй, дуутай цахим урилга</span><span id="fphone"></span></div></footer>
+
+<script>
+/* ===== СТУДИЙН МЭДЭЭЛЭЛ: өөрийнхөөрөө солино ===== */
+const STUDIO={
+  phone:'@@STUDIO_PHONE@@',         // захиалга авах утас
+  messenger:'@@STUDIO_MESSENGER@@', // Facebook хуудасны нэр (m.me/... хэсэг). Хоосон бол харуулахгүй
+  facebook:'@@STUDIO_FACEBOOK@@',   // Facebook хуудасны бүтэн холбоос
+  instagram:'@@STUDIO_INSTAGRAM@@'  // Instagram холбоос
+};
+/* ================================================ */
+const $=id=>document.getElementById(id);
+$('sphone').textContent=STUDIO.phone;$('fphone').textContent=STUDIO.phone;
+const soc=[];if(STUDIO.facebook)soc.push(`<a class="btn line" href="${STUDIO.facebook}" target="_blank" rel="noopener">Facebook</a>`);
+if(STUDIO.instagram)soc.push(`<a class="btn line" href="${STUDIO.instagram}" target="_blank" rel="noopener">Instagram</a>`);$('ssocial').innerHTML=soc.join('');
+
+/* шүүлтүүр */
+const CATS=['Бүгд','Хайр','Гэр бүл','Хүүхэд','Уламжлал','Байгууллага'];let cat='Бүгд';
+function chips(){$('chips').innerHTML=CATS.map(c=>`<button type="button" class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join('');
+  document.querySelectorAll('.card').forEach(c=>c.hidden=!(cat==='Бүгд'||c.dataset.cat===cat))}
+chips();$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;chips()}});
+
+/* багц сонгох */
+document.querySelectorAll('[data-pkg]').forEach(a=>a.addEventListener('click',()=>{$('o-pkg').value=a.dataset.pkg}));
+
+/* захиалга */
+$('oform').addEventListener('submit',e=>{e.preventDefault();
+  const v=id=>$(id).value.trim();
+  const txt=`Сайн байна уу, урилга захиалъя.\nАрга хэмжээ: ${v('o-type')}\nБагц: ${v('o-pkg')}\nНэр: ${v('o-title')}\nОгноо: ${v('o-date').replace(/-/g,'.')} ${v('o-time')}\nГазар: ${v('o-venue')||'-'}\nМиний утас: ${v('o-phone')}`;
+  $('omsg').value=txt;$('oout').hidden=false;
+  const num=STUDIO.phone.replace(/\D/g,'');
+  $('osms').href=`sms:${num}?&body=${encodeURIComponent(txt)}`;
+  if(STUDIO.messenger){$('omsgr').hidden=false;$('omsgr').href='https://m.me/'+STUDIO.messenger}
+  $('ook').textContent='Мессеж бэлэн боллоо';$('oout').scrollIntoView({behavior:'smooth',block:'center'});
+});
+$('ocopy').addEventListener('click',()=>{const t=$('omsg').value;
+  const ok=()=>{$('ook').textContent='Хуулагдлаа. Messenger-т буулгаад илгээнэ үү'};
+  try{navigator.clipboard.writeText(t).then(ok,()=>{$('omsg').select();ok()})}catch(e){$('omsg').select();ok()}});
+</script>
